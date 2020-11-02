@@ -17,8 +17,9 @@ router.beforeEach(async (to, from, next) => {
             }else {
                 // 请求用户信息
                 const {roles} = await store.dispatch('user/getInfo')
+                console.log(roles)
                 // 根据角色，动态生成路由
-                const acRoutes = store.dispatch('permission/generateRoutes', roles)
+                const acRoutes = await store.dispatch('permission/generateRoutes', roles)
                 // 添加至router
                 router.addRoutes(acRoutes)
                 // 重定向

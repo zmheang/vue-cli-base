@@ -28,11 +28,17 @@ export const constRoutes = [
     }
 ];
 
+// 假如动态路由是后端返回
+// eslint-disable-next-line no-unused-vars
+// const map = {
+//     // login: require('login/index').default    同步
+//     login: () => import('login/index')          // 异步
+// }
 export const asyncRoutes = [
     {
         path: '/about',
         component: Layout,
-        redirect: '/about/iondex',
+        redirect: '/about/index',
         children: [
             {
                 path: 'index',
@@ -41,7 +47,7 @@ export const asyncRoutes = [
                 meta: {
                     title: 'about',
                     icon: '',
-                    roles: ['admin', 'editor']
+                    roles: ['admin']
                 }
             }
         ]
